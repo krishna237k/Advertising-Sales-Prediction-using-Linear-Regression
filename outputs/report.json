@@ -1,0 +1,61 @@
+{
+  "cleaning": {
+    "rows_raw": 201,
+    "duplicates_removed": 1,
+    "missing_before": {
+      "TV": 0,
+      "Radio": 2,
+      "Newspaper": 4,
+      "Sales": 0
+    },
+    "outliers_flagged": {
+      "TV": 0,
+      "Radio": 0,
+      "Newspaper": 10,
+      "Sales": 0
+    },
+    "rows_clean": 190
+  },
+  "metrics": {
+    "r2_test": 0.8851473269382586,
+    "rmse_test": 1.662573514912291,
+    "mae_test": 1.3188874145694889,
+    "r2_train": 0.8961408532580052,
+    "cv_r2_mean": 0.8836434843652352,
+    "n_train": 152,
+    "n_test": 38
+  },
+  "intercept": 3.192259180365909,
+  "correlation_with_sales": {
+    "TV": 0.791,
+    "Radio": 0.479,
+    "Newspaper": 0.194
+  },
+  "feature_importance": {
+    "TV": {
+      "coef_per_$1k": 0.0467,
+      "std_coef(beta)": 0.8181,
+      "permutation_importance_R2_drop": 1.4037
+    },
+    "Radio": {
+      "coef_per_$1k": 0.1763,
+      "std_coef(beta)": 0.5175,
+      "permutation_importance_R2_drop": 0.6753
+    },
+    "Newspaper": {
+      "coef_per_$1k": -0.0007,
+      "std_coef(beta)": -0.0016,
+      "permutation_importance_R2_drop": 0.0001
+    }
+  },
+  "insights": {
+    "strongest_overall_predictor": "TV",
+    "highest_marginal_return_per_$1k": "Radio",
+    "extra_sales_per_additional_$1k": {
+      "TV": 0.0467,
+      "Radio": 0.1763,
+      "Newspaper": -0.0007
+    },
+    "recommendation": "TV explains the most variation in sales, so it should remain the core budget line. But each extra $1k in Radio adds the most sales (0.176k units vs 0.047k for TV), so shift marginal budget towards Radio until returns diminish. Newspaper's effect (-0.001) is statistically negligible: cut or cap it."
+  }
+}
